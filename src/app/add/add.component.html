@@ -1,0 +1,51 @@
+<h1 class="text-success text-center font-italic">Add New Worker</h1>
+<div class="jumbotron">
+    <form action="" [formGroup]="proForm" (ngSubmit)="submitted()">
+        <label for="">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+        <div class="alert alert-danger" *ngIf="proForm.get('name')?.invalid && proForm.get('name')?.touched">
+            Invalid Name
+        </div>
+        <label for="">Place</label>
+        <input type="text" class="form-control" formControlName="place">
+        <div class="alert alert-danger" *ngIf="proForm.get('place')?.invalid && proForm.get('place')?.touched">
+            Invalid Place
+        </div>
+        <label for="">Phone no.</label>
+        <input type="number" name="" id="" class="form-control" formControlName="phone">
+        <div class="alert alert-danger" *ngIf="proForm.get('phone')?.invalid && proForm.get('phone')?.touched">
+            Invalid Capacity
+        </div>
+        <label for="">Starting time</label>
+        <input type="number" name="" id="" class="form-control" formControlName="stime">
+        <div class="alert alert-danger" *ngIf="proForm.get('stime')?.invalid && proForm.get('stime')?.touched">
+            Invalid time
+        </div>
+
+        <label for="">ending time</label>
+        <input type="number" name="" id="" class="form-control" formControlName="etime">
+        <div class="alert alert-danger" *ngIf="proForm.get('etime')?.invalid && proForm.get('etime')?.touched">
+            Invalid time
+        </div>
+       
+        <label for="">Category</label>
+        <select name="" formControlName="category" id="" class="form-control">
+            <option value="feild work">feild work</option>
+            <option value="tree work">tree work</option>
+            <option value="plantation work">plantation work</option>
+            <option value="ferilizer">ferilizer</option>
+            <option value="farmer tech "> farmer tech</option>
+            <option value="cunstruction">cunstruction</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="proForm.get('category')?.invalid && proForm.get('category')?.touched">
+            Invalid Category
+        </div>  
+
+        <label for="">Image</label>
+        <input type="file" required="" (change)="uploadImage($event)" class="form-control">
+
+        <div class="text-center">
+            <button class="btn btn-success" [disabled]="proForm.invalid">Add Worker</button>
+        </div>
+
+    </form>
